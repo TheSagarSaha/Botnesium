@@ -40,13 +40,17 @@ function verify(userCommand) {
 function info(elementName) {
 	console.log(elementName);
 	var elementInfo = "";
-	elementInfo += "**Symbol**: `" + elements[elementName].symbol + "`" + newLine;
-	elementInfo += "**Phase**: " + elements[elementName].phase + newLine;
-	elementInfo += "**Type**: " + elements[elementName].category + newLine;
-	elementInfo += "**Boiling Point**: " + elements[elementName].boil + ", **Melting Point**: " + elements[elementName].melt + newLine;
-	elementInfo += "**Condensed Electron Cofig**: " + elements[elementName].electron_configuration_semantic + newLine;
-	elementInfo += "**Color**: " + elements[elementName].appearance + newLine + newLine;
-	elementInfo += "**Summary**: " + "```" + elements[elementName].summary + "```" + newLine;
+	try {
+		elementInfo += "**Symbol**: `" + elements[elementName].symbol + "`" + newLine;
+		elementInfo += "**Phase**: " + elements[elementName].phase + newLine;
+		elementInfo += "**Type**: " + elements[elementName].category + newLine;
+		elementInfo += "**Boiling Point**: " + elements[elementName].boil + ", **Melting Point**: " + elements[elementName].melt + newLine;
+		elementInfo += "**Condensed Electron Cofig**: " + elements[elementName].electron_configuration_semantic + newLine;
+		elementInfo += "**Color**: " + elements[elementName].appearance + newLine + newLine;
+		elementInfo += "**Summary**: " + "```" + elements[elementName].summary + "```" + newLine;
+	} catch (error) {
+		elementInfo = "Opps! Looks like you've made a typo. Please try again. **Make sure you are using the full element name.**";
+	}
 
 	return elementInfo;
 }
