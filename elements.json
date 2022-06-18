@@ -5075,5 +5075,5 @@
       "ionization_energies": [],
       "cpk-hex": null
   },
-  "__comment": "The source is taken from: https://github.com/Bowserinator/Periodic-Table-JSON/blob/master/periodic-table-lookup.json"
+  "__comment": "This .json file is taken from: https://github.com/Bowserinator/Periodic-Table-JSON/blob/master/periodic-table-lookup.json"
 }
