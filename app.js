@@ -7,12 +7,13 @@
 */
 
 const { Client, Intents, MessageEmbed } = require('discord.js');
-const client = new Client({	intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES]});
+const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] });
 const { token } = require("./config.json");
 const elements = require("./elements.json");
 const prefix = ".";
-const BOLD = "**"
-const newLine = " \n"
+var array = ['null'];
+var display = [];
+var count = 0;
 
 client.once("ready", () => {
 	console.log("Botneisum Online!");
@@ -30,11 +31,15 @@ client.on("message", message => {
 })
 
 function verify(userCommand) {
+
 	var reply = "default";
 	if (userCommand == "play") {
-		play();
-		reply = "Will start playing!";
-	} else if (userCommand == "help") {
+		initializePlay();
+		reply = "**Game Started!** You can try to guess the secret element. If you can't, you will be provided with 9 hints. If you can't figure out the element within 9 hints, you will lose. Start by guessing a random element! Remember to write '.play' before. For Example `.play oxygen`. Good Luck!";
+	} else if (userCommand.substring(0, 4) == "play" && userCommand.substring(4, 5) == " ") {
+		const guess = userCommand.substr(5, userCommand.length);
+		reply = continuePlay(guess)
+	}	else if (userCommand == "help") {
 		reply = "Welcome to Botnesium! You can either play a game with me or get any information about any elements in the periodic table. \n\nTo play with me, type in **.play**. Or if you want to retrieve any information, type in **.info [followed by the element name]**. For example: `.info hydrogen` will return you with all the information about the Hydrogen element.";
 	} else if (userCommand.substring(0, 4) == "info" && userCommand.substring(4, 5) == " ") {
 		const name = userCommand.substr(5, userCommand.length);
@@ -73,7 +78,6 @@ function info(elementName) {
 			{ name: 'Condensed Electron Config', value: elements[elementName].electron_configuration_semantic, inline: true },
 		)
 		.addField('Apperance', app, true)
-		// .setImage('https://i.imgur.com/AfFp7pu.png')
 		.setTimestamp()
 		.setFooter({ text: 'Contact Hacker3165#3165 with Inquries', iconURL: 'https://raw.githubusercontent.com/TheSagarSaha/SagarSaha01.github.io/master/images/sagar-saha-avatar.jpg' });
 	
@@ -87,10 +91,35 @@ function info(elementName) {
 	return elementInfo;
 }
 
-function play() {
-	const randNum = Math.floor(Math.random() * 118);
+function initializePlay() {
+
+	const randNum = Math.floor(Math.random() * 118) + 1;
 	const element = elements[Object.keys(elements)[randNum]].name;
-	console.log(element);
+	array[0] = element.toLowerCase();
+	display = [12, 11, 6, 21, 4, 2, 1, 16, 0]
+	count = 0;
+
 }
+
+function continuePlay(guess) {	
+
+	var reply = "null"
+	if (guess == array[0]) {
+		reply = "Congrats! :clap: The element is **" + array[0] + "**"
+	} else if (count >= 8) {
+		return "Unfortunately you couldn't guess the element within the given hints :smiling_face_with_tear: Better luck next time :) The element was **" + array[0] + "**"
+	}	else {
+		const key = Object.keys(elements[array[0]])[display[count]]
+		const value = Object.values(elements[array[0]])[display[count]]
+		count++;
+
+		reply = "Opps! Looks like its not the correct element :pensive: Heres a hint to help you: \n\n**" + key + ": " + value + "**"
+
+	}
+
+	return reply;
+
+}
+
 
 client.login(token);
