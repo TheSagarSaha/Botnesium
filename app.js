@@ -68,9 +68,9 @@ function info(elementName) {
 		.setColor('#0099ff')
 		.setTitle('Detailed Element Information')
 		.setURL('https://discord.js.org/')
-		.setAuthor({ name: 'Botnesium', iconURL: 'https://i.imgur.com/AfFp7pu.png', url: 'https://discord.js.org' })
+		.setAuthor({ name: 'Botnesium', iconURL: 'https://raw.githubusercontent.com/TheSagarSaha/Botnesium/master/images/Screenshot%202022-06-21%20142540.jpg', url: 'https://discord.js.org' })
 		.setDescription('User used `.info`. Showing information on `' + elements[elementName].name + "` element. Symbol: `" + elements[elementName].symbol + "`.")
-		.setThumbnail('https://i.imgur.com/AfFp7pu.png')
+		.setThumbnail('https://raw.githubusercontent.com/TheSagarSaha/Botnesium/master/images/Screenshot%202022-06-21%20142540.jpg')
 			.addFields(
 			{ name: '\u200B', value: '\u200B' },
 			{ name: 'Summary', value: elements[elementName].summary },
