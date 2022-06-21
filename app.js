@@ -44,7 +44,10 @@ function verify(userCommand) {
 	} else if (userCommand.substring(0, 4) == "info" && userCommand.substring(4, 5) == " ") {
 		const name = userCommand.substr(5, userCommand.length);
 		reply = info(name);
-	} else {
+	} else if (userCommand == "table") {
+		return ("Image of the periodic table", {files: ["https://sciencenotes.org/wp-content/uploads/2017/11/PeriodicTableWorks2017.png"] });
+	} 
+	else {
 		reply = "Command Not Found :( Please check for any typo or type in **.help** for more information. "
 	}
 
