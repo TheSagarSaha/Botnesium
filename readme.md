@@ -5,10 +5,19 @@
 ---
 
 ### How the Bot Works:
-Whenever the bot is online, it will scan every message an user sends to that channel and if any message starts with the keywords `.help`, `.play`, `.table`, or `.info [element name]`, the bot will act respectively. Botnesium is connected to a specific server using a token and a client key which are kept secret. However, the bot has to be manually tured on using `node app.js` and it is not ready to be added to other servers yet. ** The bot gets the data from a json file which was retreived from another github repository. **
+---
+##### Whenever the bot is online, it will scan every message an user sends to that channel and if any message starts with the keywords `.help`, `.play`, `.table`, or `.info [element name]`, the bot will act respectively. Botnesium is connected to a specific server using a token and a client key which are kept secret. However, the bot has to be manually tured on using `node app.js` and it is not ready to be added to other servers yet. **The bot gets the data from a json file which was retreived from another github repository.**
 ---
 
-### Usage: 
+### Usage:
 Here are a few different screenshots from Botnesium:
 
+The following image describes the role of `.help` command:
+![help](images/help.jpg)<br>
+The following image describes the role of `.info [element name]` command:
+![info](images/info.jpg)<br>
+The following image describes the role of `.table` command:
+![table](images/table.jpg)<br>
+The following image describes the role of `.play` command:
+![play](images/play.jpg)
 
