@@ -11,13 +11,13 @@
 
 ### Usage:
 Here are a few different screenshots from Botnesium:
-
+<br>
 The following image describes the role of `.help` command:
-![help](images/help.jpg)<br>
+![help](images/help.jpg)<br><br>
 The following image describes the role of `.info [element name]` command:
-![info](images/info.jpg)<br>
+![info](images/info.jpg)<br><br>
 The following image describes the role of `.table` command:
-![table](images/table.jpg)<br>
+![table](images/table.jpg)<br><br>
 The following image describes the role of `.play` command:
 ![play](images/play.jpg)
 
